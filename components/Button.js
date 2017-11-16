@@ -4,37 +4,35 @@ import React from 'react';
 
 const Label = styled.Text`
 	font-family: OpenSans-Bold;
-	font-size: 15px;
-	color: #FF0084;
-`;
-const TextInput = styled.TextInput`
-	border-width: 3;
-	border-color: #FF0084;
-	border-style: solid;
-	height: 44;
-	font-size: 27;
-	padding-left: 9;
-	padding-right: 9;
+	font-size: 30px;
+	text-align: center;
+	width: 90%;
+	opacity: ${({disabled = false}) => disabled ? 0.75 : 1};
 	color: white;
 `;
 
-const Wrapper = styled.View`
+
+const Wrapper = styled.TouchableOpacity`
 	width: 100%;
-	height: ${({height = 64}) => height};
-	justify-content: space-between;
+	height: ${({height = 50}) => height};
+	background-color: #FF0084;
+	opacity: ${({disabled = false}) => disabled ? 0.7 : 1};
+	justify-content: center;
+	align-items: center;	
+	
 `;
 
-const Input = ({value, height, label='', onChange}) => (
-	<Wrapper height={height}>
-		<Label>{label.toUpperCase()}</Label>
-		<TextInput value={value} onChange={({target: {value}}) => onChange(value)}/>
+const Button = ({height, children, onPress, disabled}) => (
+	<Wrapper onPress={disabled ? undefined  : onPress} height={height} disabled={disabled}>
+		<Label disabled={disabled}>{children.toUpperCase()}</Label>
 	</Wrapper>
 );
 
-Input.propTypes = {
-	label: PropTypes.string,
+Button.propTypes = {
 	height: PropTypes.string,
-	onChange: PropTypes.func.isRequired,
+	children: PropTypes.any.isRequired,
+	disabled: PropTypes.bool,
+	onPress: PropTypes.func.isRequired,
 };
 
-export default Input;
+export default Button;

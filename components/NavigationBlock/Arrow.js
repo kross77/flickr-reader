@@ -1,24 +1,38 @@
 import styled from 'styled-components/native';
 import {withState, compose, defaultProps} from 'recompose';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-const Sizes = {
-	normal: [244, 131],
-	small: [122, 65],
-	xsmall: [61, 34],
-};
+const PADDING = 50;
+const SIZE = 38;
 
-const enhancer  = compose(
-	defaultProps({resizeMode: 'contain', size: 'normal',}),
-	withState('source', 'setSource', require('../assets/logos/logo.png')),
+const enhancer = compose(
+	defaultProps({resizeMode: 'contain', source: require('../../assets/arrow.png')}),
 );
-const Logo = styled.Image`
-	width: ${({size = "normal"}) => Sizes[size][0]};
-	height: ${({size = "normal"}) => Sizes[size][1]};
+const Wrapper = styled.TouchableOpacity`
+	width: ${PADDING+SIZE};
+	height: ${PADDING+SIZE};
+	justify-content: center;
+	align-items: center;
 `;
 
-Logo.propTypes = {
-	size: PropTypes.oneOf(['normal', 'small', 'xsmall']),
+const Image = enhancer(styled.Image`
+	width: ${SIZE};
+	height: ${SIZE};
+	opacity: ${({disabled = false}) => disabled ? 0.7 : 1};
+	transform: scale(${({flip}) => flip ? -1 : 1}, 1);
+`);
+
+const Arrow = ({onPress, flip, disabled}) => (
+	<Wrapper onPress={disabled ? undefined : onPress}>
+		<Image flip={flip}/>
+	</Wrapper>
+);
+
+Arrow.propTypes = {
+	onPress: PropTypes.func.isRequired,
+	flip: PropTypes.bool,
+	disabled: PropTypes.bool,
 };
 
-export default enhancer(Logo);
+export default enhancer(Arrow);

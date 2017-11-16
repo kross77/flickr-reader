@@ -1,39 +1,36 @@
 import styled from 'styled-components/native';
 import PropTypes from 'prop-types';
 import React from 'react';
-import React from 'react';
+import Arrow from "./Arrow";
+import PageCounter from "./PageCounter";
 
-const Label = styled.Text`
-	font-family: OpenSans-Bold;
-	font-size: 30px;
-	text-align: center;
+
+const Wrapper = styled.View`
 	width: 90%;
-	opacity: ${({disabled = false}) => disabled ? 0.75 : 1};
-	color: white;
-`;
-
-
-const Wrapper = styled.TouchableOpacity`
-	width: 90%;
-	height: ${({height = 50}) => height};
-	background-color: #FF0084;
-	opacity: ${({disabled = false}) => disabled ? 0.7 : 1};
+	height: ${({height = 72}) => height};
+	flex-direction: row;
 	justify-content: center;
 	align-items: center;	
 	
 `;
 
-const Button = ({height, children, onPress, disabled}) => (
-	<Wrapper onPress={disabled ? undefined  : onPress} height={height} disabled={disabled}>
-		<Label disabled={disabled}>{children.toUpperCase()}</Label>
+const NavigationBlock = ({height, count, tip, onPressLeft, leftDisable, onPressRight, rightDisable}) => (
+	<Wrapper  height={height} >
+		<Arrow onPress={onPressLeft} disabled={leftDisable}/>
+		<PageCounter count={count} tip={tip}/>
+		<Arrow onPress={onPressRight} disabled={rightDisable} flip={true}/>
 	</Wrapper>
 );
 
-Button.propTypes = {
+
+NavigationBlock.propTypes = {
 	height: PropTypes.string,
-	children: PropTypes.any.isRequired,
-	disabled: PropTypes.bool,
-	onPress: PropTypes.func.isRequired,
+	count: PropTypes.string,
+	tip: PropTypes.string,
+	onPressLeft: PropTypes.func.isRequired,
+	onPressRight: PropTypes.func.isRequired,
+	leftDisable: PropTypes.bool,
+	rightDisable: PropTypes.bool,
 };
 
-export default Button;
+export default NavigationBlock;
