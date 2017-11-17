@@ -3,11 +3,11 @@ import {withState, compose, defaultProps} from 'recompose';
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const PADDING = 50;
+const PADDING = 15;
 const SIZE = 38;
 
 const enhancer = compose(
-	defaultProps({resizeMode: 'contain', source: require('../../assets/arrow.png')}),
+	defaultProps({resizeMode: 'contain', source: require('../assets/arrow.png')}),
 );
 const Wrapper = styled.TouchableOpacity`
 	width: ${PADDING+SIZE};

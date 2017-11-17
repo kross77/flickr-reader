@@ -30,17 +30,23 @@ const AspectRatio = styled.View`
 const firstRowIndexes = [0,5,7,8];
 const secondRowIndexes = [1,2,3,4,6,9,10];
 
-const getImagesForFirstRow = (images) => images.filter((v, i) => firstRowIndexes.find(index => index === i) !== -1);
-const getImagesForSecondRow = (images) => images.filter((v, i) => secondRowIndexes.find(index => index === i) !== -1);
+const getImagesForFirstRow = (images) => images.filter((v, i) => firstRowIndexes.findIndex(index => index === i) !== -1);
+const getImagesForSecondRow = (images) => images.filter((v, i) => secondRowIndexes.findIndex(index => index === i) !== -1);
 
-const Grid = ({images, onImageSelect}) => (
-	<Wrapper >
-		<AspectRatio>
-			<FirstColumn images={getImagesForFirstRow(images)} onImageSelect={onImageSelect}/>
-			<SecondColumn images={getImagesForSecondRow(images)} onImageSelect={onImageSelect}/>
-		</AspectRatio>
-	</Wrapper>
-);
+const Grid = ({images, onImageSelect}) => {
+
+	let imagesForFirstRow = getImagesForFirstRow(images);
+	let imagesForSecondRow = getImagesForSecondRow(images);
+	console.log('Grid -> render', {images, imagesForFirstRow, imagesForSecondRow});
+	return(
+		<Wrapper >
+			<AspectRatio>
+				<FirstColumn images={imagesForFirstRow} onImageSelect={onImageSelect}/>
+				<SecondColumn images={imagesForSecondRow} onImageSelect={onImageSelect}/>
+			</AspectRatio>
+		</Wrapper>
+	);
+}
 
 
 Grid.propTypes = {

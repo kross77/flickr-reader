@@ -1,8 +1,8 @@
 import styled from 'styled-components/native';
 import PropTypes from 'prop-types';
 import React from 'react';
-import Arrow from "./Arrow";
-import PageCounter from "./PageCounter";
+import Arrow from "../Arrow";
+import KeywordBlock from "./KeywordBlock";
 
 
 const Wrapper = styled.View`
@@ -10,27 +10,29 @@ const Wrapper = styled.View`
 	height: ${({height = 72}) => height};
 	flex-direction: row;
 	justify-content: center;
-	align-items: center;	
-	
+	align-items: center;
 `;
 
-const NavigationBlock = ({height, count, tip, onPressLeft, leftDisable, onPressRight, rightDisable}) => (
-	<Wrapper  height={height} >
-		<Arrow onPress={onPressLeft} disabled={leftDisable}/>
-		<PageCounter count={count} tip={tip}/>
-		<Arrow onPress={onPressRight} disabled={rightDisable} flip={true}/>
+const ArrowView = styled.View`
+	position: absolute;
+	left: 0;
+`;
+
+const NavigationBlock = ({height, label, tip, onBackPress, ...props}) => (
+	<Wrapper  height={height} {...props}>
+		<ArrowView>
+			<Arrow onPress={onBackPress}/>
+		</ArrowView>
+		<KeywordBlock label={label} tip={tip}/>
 	</Wrapper>
 );
 
 
 NavigationBlock.propTypes = {
 	height: PropTypes.string,
-	count: PropTypes.string,
+	label: PropTypes.string,
 	tip: PropTypes.string,
-	onPressLeft: PropTypes.func.isRequired,
-	onPressRight: PropTypes.func.isRequired,
-	leftDisable: PropTypes.bool,
-	rightDisable: PropTypes.bool,
+	onBackPress: PropTypes.func.isRequired,
 };
 
 export default NavigationBlock;
