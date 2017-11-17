@@ -3,8 +3,7 @@ import {withState, compose, defaultProps, withPropsOnChange} from 'recompose';
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const apiKey = 'dd1f37406f619d661d5c40cddd1d5054';
-const apiSecret = 'a3b602fa2a7cae3a';
+
 
 
 const enhancer = compose(
@@ -19,7 +18,7 @@ const Wrapper = styled.TouchableOpacity`
 	align-items: center;
 	padding: 5px;
 `;
-const Border = styled.TouchableOpacity`
+const Border = styled.View`
 	width: 100%;
 	height: 100%;
 	justify-content: center;
@@ -35,10 +34,10 @@ const Image = enhancer(styled.Image`
 	height: 100%;
 `);
 
-const ImageItem = ({onPress, id, secret, server, farm}) => (
+const ImageItem = ({onPress, id, secret, server, farm, isBig}) => (
 	<Wrapper onPress={onPress}>
 		<Border>
-			<Image {...{id, secret, server, farm}} />
+			<Image {...{id, secret, server, farm, isBig}} />
 		</Border>
 
 	</Wrapper>

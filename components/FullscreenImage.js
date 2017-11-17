@@ -10,13 +10,14 @@ const apiSecret = 'a3b602fa2a7cae3a';
 const enhancer = compose(
 	defaultProps({resizeMode: 'contain'}),
 	withPropsOnChange(['id', 'secret',], ({id, farm, secret, server}) => ({
-		source: {uri: `https://farm${farm}.staticflickr.com/${server}/${id}_${secret}_k.jpg`}
+		source: {uri: `https://farm${farm}.staticflickr.com/${server}/${id}_${secret}_b.jpg`}
 	}))
 );
 
 
-const Wrapper = styled.TouchableOpacity`
-	flex: 1;
+const Wrapper = styled.View`
+	width: 100%;
+	height: 100%;
 	justify-content: center;
 	align-items: center;
 `;
@@ -26,13 +27,16 @@ const Image = enhancer(styled.Image`
 	height: 100%;
 `);
 
-const FullscreenImage = ({onPress, id, secret, server, farm, children}) => (
-	<Wrapper onPress={onPress}>
-		<Image {...{id, secret, server, farm}}>
-			{children}
-		</Image>
-	</Wrapper>
-);
+const FullscreenImage = ({onPress, id, secret, server, farm, children}) => {
+	console.log({id, secret, server, farm});
+	return(
+		<Wrapper onPress={onPress}>
+			<Image {...{id, secret, server, farm}}>
+				{children}
+			</Image>
+		</Wrapper>
+	);
+}
 
 FullscreenImage.propTypes = {
 	id: PropTypes.string,

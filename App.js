@@ -1,6 +1,8 @@
 import React from 'react';
 import {ActivityIndicator, View} from 'react-native';
 import Storybook from './storybook/index';
+import Routes from './routes/';
+import cacheImages from './utils/cacheImages';
 import {Font} from 'expo';
 
 
@@ -15,12 +17,13 @@ export default class App extends React.Component {
 			'OpenSans-Light': require('./assets/fonts/OpenSans-Light.ttf'),
 			'OpenSans-Regular': require('./assets/fonts/OpenSans-Regular.ttf'),
 		});
+		await cacheImages();
 		this.setState({fontLoaded: true});
 	};
 
 	render() {
 		return this.state.fontLoaded ? (
-			<Storybook/>
+			<Routes/>
 		) : (
 			<View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
 				<ActivityIndicator/>

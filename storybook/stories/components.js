@@ -24,135 +24,135 @@ const Wrapper80 = styled.View`
 
 const images = {
 	"photos": {
-		"page": 1, "pages": "38735", "perpage": 11, "total": "426085",
+		"page": 1, "pages": "36309", "perpage": 11, "total": "399396",
 		"photo": [
 			{
-				"id": "38415975946",
-				"owner": "43925496@N00",
-				"secret": "212cdcace9",
-				"server": "4533",
-				"farm": 5,
-				"title": "F8855 ~ Walking the dogs....",
-				"ispublic": 1,
-				"isfriend": 0,
-				"isfamily": 0,
-				"description": {"_content": "It's such an enjoyable task!"}
-			},
-			{
-				"id": "24599817618",
-				"owner": "69726099@N05",
-				"secret": "4a0514ecef",
-				"server": "4553",
-				"farm": 5,
-				"title": "",
-				"ispublic": 1,
-				"isfriend": 0,
-				"isfamily": 0,
-				"description": {"_content": ""}
-			},
-			{
-				"id": "38471482001",
-				"owner": "50743454@N03",
-				"secret": "a1b1254dc8",
-				"server": "4559",
-				"farm": 5,
-				"title": "Chill",
-				"ispublic": 1,
-				"isfriend": 0,
-				"isfamily": 0,
-				"description": {"_content": "Foma Retropan 320"}
-			},
-			{
-				"id": "37756560424",
-				"owner": "132444949@N07",
-				"secret": "1834205fa5",
-				"server": "4581",
-				"farm": 5,
-				"title": "Hurricane Irma and Maria",
-				"ispublic": 1,
-				"isfriend": 0,
-				"isfamily": 0,
-				"description": {"_content": "The powerful category 5 hurricanes Irma and Maria hit the Caribbean in September causing a number of deaths and widespread devastation in the Caribbean. \n\nPhoto: Michael Atwood \/ UNDP"}
-			},
-			{
-				"id": "37584211295",
-				"owner": "132444949@N07",
-				"secret": "ef45955b43",
-				"server": "4552",
-				"farm": 5,
-				"title": "Hurricane Irma and Maria",
-				"ispublic": 1,
-				"isfriend": 0,
-				"isfamily": 0,
-				"description": {"_content": "The powerful category 5 hurricanes Irma and Maria hit the Caribbean in September causing a number of deaths and widespread devastation in the Caribbean. \n\nPhoto: Michael Atwood \/ UNDP"}
-			},
-			{
-				"id": "37756559604",
-				"owner": "132444949@N07",
-				"secret": "3af5b7abe6",
-				"server": "4515",
-				"farm": 5,
-				"title": "Hurricane Irma and Maria",
-				"ispublic": 1,
-				"isfriend": 0,
-				"isfamily": 0,
-				"description": {"_content": "The powerful category 5 hurricanes Irma and Maria hit the Caribbean in September causing a number of deaths and widespread devastation in the Caribbean. \n\nPhoto: Michael Atwood \/ UNDP"}
-			},
-			{
-				"id": "38471291071",
-				"owner": "59956364@N07",
-				"secret": "89b7797968",
+				"id": "26697074429",
+				"owner": "24696968@N02",
+				"secret": "6be9328f35",
 				"server": "4583",
 				"farm": 5,
-				"title": "A man and his dog",
+				"title": "IMG_20070113_171405_1.JPG",
 				"ispublic": 1,
 				"isfriend": 0,
 				"isfamily": 0,
 				"description": {"_content": ""}
 			},
 			{
-				"id": "37756450844",
-				"owner": "32669914@N04",
-				"secret": "223e38e90a",
-				"server": "4562",
+				"id": "38441247002",
+				"owner": "46980153@N08",
+				"secret": "ceaaa3fc35",
+				"server": "4581",
 				"farm": 5,
-				"title": "",
+				"title": "Smoky Mountain Stream",
 				"ispublic": 1,
 				"isfriend": 0,
 				"isfamily": 0,
 				"description": {"_content": ""}
 			},
 			{
-				"id": "37584091305",
-				"owner": "32669914@N04",
-				"secret": "33027bedae",
-				"server": "4552",
+				"id": "37758007744",
+				"owner": "80174067@N02",
+				"secret": "9e473bd649",
+				"server": "4572",
 				"farm": 5,
-				"title": "",
+				"title": "DSC05723",
 				"ispublic": 1,
 				"isfriend": 0,
 				"isfamily": 0,
 				"description": {"_content": ""}
 			},
 			{
-				"id": "26695460779",
-				"owner": "32669914@N04",
-				"secret": "3eeedf6d54",
-				"server": "4551",
+				"id": "38472621941",
+				"owner": "33924876@N05",
+				"secret": "4ec94e5ae3",
+				"server": "4565",
 				"farm": 5,
-				"title": "",
+				"title": "Durham!",
 				"ispublic": 1,
 				"isfriend": 0,
 				"isfamily": 0,
 				"description": {"_content": ""}
 			},
 			{
-				"id": "37584081655",
-				"owner": "32669914@N04",
-				"secret": "4be23520fd",
-				"server": "4576",
+				"id": "38416749436",
+				"owner": "26484363@N06",
+				"secret": "e5cabb0e6a",
+				"server": "4542",
 				"farm": 5,
-				"title": "",
+				"title": "Photo",
+				"ispublic": 1,
+				"isfriend": 0,
+				"isfamily": 0,
+				"description": {"_content": ""}
+			},
+			{
+				"id": "37585452015",
+				"owner": "33924876@N05",
+				"secret": "b6d442d062",
+				"server": "4558",
+				"farm": 5,
+				"title": "Durham!",
+				"ispublic": 1,
+				"isfriend": 0,
+				"isfamily": 0,
+				"description": {"_content": ""}
+			},
+			{
+				"id": "38440720692",
+				"owner": "29927633@N08",
+				"secret": "62d4ecd3a7",
+				"server": "4549",
+				"farm": 5,
+				"title": "dogs in costumes",
+				"ispublic": 1,
+				"isfriend": 0,
+				"isfamily": 0,
+				"description": {"_content": ""}
+			},
+			{
+				"id": "24600492448",
+				"owner": "29927633@N08",
+				"secret": "544a649858",
+				"server": "4536",
+				"farm": 5,
+				"title": "dogs in costumes2",
+				"ispublic": 1,
+				"isfriend": 0,
+				"isfamily": 0,
+				"description": {"_content": ""}
+			},
+			{
+				"id": "24600491768",
+				"owner": "29927633@N08",
+				"secret": "091d5fc595",
+				"server": "4557",
+				"farm": 5,
+				"title": "dogs in costumes3",
+				"ispublic": 1,
+				"isfriend": 0,
+				"isfamily": 0,
+				"description": {"_content": ""}
+			},
+			{
+				"id": "37585278395",
+				"owner": "29927633@N08",
+				"secret": "c10ec59f54",
+				"server": "4531",
+				"farm": 5,
+				"title": "dogs in costumes4",
+				"ispublic": 1,
+				"isfriend": 0,
+				"isfamily": 0,
+				"description": {"_content": ""}
+			},
+			{
+				"id": "37585276905",
+				"owner": "29927633@N08",
+				"secret": "fec7b6e569",
+				"server": "4540",
+				"farm": 5,
+				"title": "dogs in costumes5",
 				"ispublic": 1,
 				"isfriend": 0,
 				"isfamily": 0,
@@ -160,7 +160,7 @@ const images = {
 			}
 		]
 	}, "stat": "ok"
-}
+};
 
 let oneImage = images.photos.photo.filter((v, i) => i < 1);
 storiesOf('Components', module)
@@ -275,6 +275,34 @@ storiesOf('Components', module)
 			/>
 		</Background>
 	)
+
+	.add('bottom navigation left disabled', () =>
+		<Background>
+			<BottomNavigation onPressRight={() => action('navigation block -> prev')}
+							  leftDisable={true}
+							  onPressLeft={() => action('navigation block -> next')}
+			/>
+		</Background>
+	)
+
+	.add('bottom navigation right disabled', () =>
+		<Background>
+			<BottomNavigation onPressRight={() => action('navigation block -> prev')}
+							  rightDisable={true}
+							  onPressLeft={() => action('navigation block -> next')}
+			/>
+		</Background>
+	)
+
+	.add('bottom navigation all disabled', () =>
+		<Background>
+			<BottomNavigation onPressRight={() => action('navigation block -> prev')}
+							  leftDisable={true}
+							  rightDisable={true}
+							  onPressLeft={() => action('navigation block -> next')}
+			/>
+		</Background>
+	)
 	.add('description block', () =>
 		<Background>
 			<DescriptionBlock title="F8855 ~ Walking the dogs...." description="The powerful category 5 hurricanes Irma and Maria hit the Caribbean in September causing a number of deaths and widespread devastation in the Caribbean.
@@ -284,11 +312,11 @@ Photo: Michael Atwood / UNDP"/>
 	)
 	.add('fullscreen image', () =>
 		<Background>
-			<FullscreenImage {images[Math.ceil(Math.random() * images.length)]} />
+			<FullscreenImage {...images.photos.photo[Math.ceil(Math.random() * images.photos.photo.length)]} />
 		</Background>
 	)
 	.add('close btn', () =>
 		<Background>
-			<CloseButton onPress={() => action('close button pressed')} />
+			<CloseButton onPress={() => action('close button pressed')}/>
 		</Background>
 	);

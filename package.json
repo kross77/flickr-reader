@@ -1,7 +1,7 @@
 {
   "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "private": true,
-   "devDependencies": {
+  "devDependencies": {
     "@storybook/addon-actions": "^3.2.11",
     "@storybook/addon-links": "^3.2.10",
     "@storybook/react-native": "^3.2.11",
@@ -27,7 +27,8 @@
     "expo": "^22.0.0",
     "react": "16.0.0-beta.5",
     "react-native": "https://github.com/expo/react-native/archive/sdk-22.0.2.tar.gz",
-    "react-navigation": "^1.0.0-beta.13",
+    "react-native-transitiongroup": "^1.1.0",
+    "react-navigation": "^1.0.0-beta.19",
     "react-redux": "^5.0.6",
     "recompose": "^0.25.1",
     "redux": "^3.7.2",

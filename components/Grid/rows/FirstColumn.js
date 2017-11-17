@@ -8,14 +8,14 @@ import getImage from "./getImage";
 const FirstColumn = ({images, onImageSelect}) => (
 	<Wrapper>
 		<Row flex={2}>
-			{getImage(0, images, onImageSelect)}
+			{getImage(0, images, onImageSelect, true)}
 		</Row>
 		<Row>
 			{getImage(1, images, onImageSelect)}
 			{getImage(2, images, onImageSelect)}
 		</Row>
 		<Row flex={2}>
-			{getImage(3, images, onImageSelect)}
+			{getImage(3, images, onImageSelect, true)}
 		</Row>
 	</Wrapper>
 );

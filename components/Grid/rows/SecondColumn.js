@@ -16,7 +16,7 @@ const SecondColumn = ({images, onImageSelect}) => (
 			{getImage(3, images, onImageSelect)}
 		</Row>
 		<Row flex={2}>
-			{getImage(4, images, onImageSelect)}
+			{getImage(4, images, onImageSelect, true)}
 		</Row>
 		<Row>
 			{getImage(5, images, onImageSelect)}

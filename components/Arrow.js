@@ -19,13 +19,13 @@ const Wrapper = styled.TouchableOpacity`
 const Image = enhancer(styled.Image`
 	width: ${SIZE};
 	height: ${SIZE};
-	opacity: ${({disabled = false}) => disabled ? 0.7 : 1};
+	opacity: ${({disabled = false}) => disabled ? 0.2 : 1};
 	transform: scale(${({flip}) => flip ? -1 : 1}, 1);
 `);
 
 const Arrow = ({onPress, flip, disabled}) => (
 	<Wrapper onPress={disabled ? undefined : onPress}>
-		<Image flip={flip}/>
+		<Image disabled={disabled} flip={flip}/>
 	</Wrapper>
 );
 

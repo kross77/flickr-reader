@@ -1,158 +1,144 @@
 import React from 'react';
-import styled from 'styled-components/native';
+import axios from 'axios';
+import {compose, lifecycle, withHandlers, withPropsOnChange, withState} from 'recompose';
 import {storiesOf} from '@storybook/react-native';
 import {action} from '@storybook/addon-actions';
-
-import Background from '../../components/Background'
-import Logo from '../../components/Logo'
-import Input from '../../components/Input'
-import Button from '../../components/Button'
-import ActivityIndicator from '../../components/ActivityIndicator'
-import NavigationBlock from '../../components/NavigationBlock'
-import BottomNavigation from '../../components/BottomNavigation'
-import Grid from "../../components/Grid";
-import DescriptionBlock from "../../components/DescriptionBlock";
-import FullscreenImage from "../../components/FullscreenImage";
-import CloseButton from "../../components/CloseButton";
-
-const Wrapper80 = styled.View`
-	width: 80%;
-	height: 100%;
-	justify-content: center;
-	align-items: center;
-`;
+import Background from "../../components/Background";
+import Search from "../../pages/Search";
+import SearchResults from "../../pages/SearchResults";
+import App from "../../routes";
 
 const images = {
 	"photos": {
-		"page": 1, "pages": "38735", "perpage": 11, "total": "426085",
+		"page": 1, "pages": "36309", "perpage": 11, "total": "399396",
 		"photo": [
 			{
-				"id": "38415975946",
-				"owner": "43925496@N00",
-				"secret": "212cdcace9",
-				"server": "4533",
-				"farm": 5,
-				"title": "F8855 ~ Walking the dogs....",
-				"ispublic": 1,
-				"isfriend": 0,
-				"isfamily": 0,
-				"description": {"_content": "It's such an enjoyable task!"}
-			},
-			{
-				"id": "24599817618",
-				"owner": "69726099@N05",
-				"secret": "4a0514ecef",
-				"server": "4553",
-				"farm": 5,
-				"title": "",
-				"ispublic": 1,
-				"isfriend": 0,
-				"isfamily": 0,
-				"description": {"_content": ""}
-			},
-			{
-				"id": "38471482001",
-				"owner": "50743454@N03",
-				"secret": "a1b1254dc8",
-				"server": "4559",
-				"farm": 5,
-				"title": "Chill",
-				"ispublic": 1,
-				"isfriend": 0,
-				"isfamily": 0,
-				"description": {"_content": "Foma Retropan 320"}
-			},
-			{
-				"id": "37756560424",
-				"owner": "132444949@N07",
-				"secret": "1834205fa5",
-				"server": "4581",
-				"farm": 5,
-				"title": "Hurricane Irma and Maria",
-				"ispublic": 1,
-				"isfriend": 0,
-				"isfamily": 0,
-				"description": {"_content": "The powerful category 5 hurricanes Irma and Maria hit the Caribbean in September causing a number of deaths and widespread devastation in the Caribbean. \n\nPhoto: Michael Atwood \/ UNDP"}
-			},
-			{
-				"id": "37584211295",
-				"owner": "132444949@N07",
-				"secret": "ef45955b43",
-				"server": "4552",
-				"farm": 5,
-				"title": "Hurricane Irma and Maria",
-				"ispublic": 1,
-				"isfriend": 0,
-				"isfamily": 0,
-				"description": {"_content": "The powerful category 5 hurricanes Irma and Maria hit the Caribbean in September causing a number of deaths and widespread devastation in the Caribbean. \n\nPhoto: Michael Atwood \/ UNDP"}
-			},
-			{
-				"id": "37756559604",
-				"owner": "132444949@N07",
-				"secret": "3af5b7abe6",
-				"server": "4515",
-				"farm": 5,
-				"title": "Hurricane Irma and Maria",
-				"ispublic": 1,
-				"isfriend": 0,
-				"isfamily": 0,
-				"description": {"_content": "The powerful category 5 hurricanes Irma and Maria hit the Caribbean in September causing a number of deaths and widespread devastation in the Caribbean. \n\nPhoto: Michael Atwood \/ UNDP"}
-			},
-			{
-				"id": "38471291071",
-				"owner": "59956364@N07",
-				"secret": "89b7797968",
+				"id": "26697074429",
+				"owner": "24696968@N02",
+				"secret": "6be9328f35",
 				"server": "4583",
 				"farm": 5,
-				"title": "A man and his dog",
+				"title": "IMG_20070113_171405_1.JPG",
 				"ispublic": 1,
 				"isfriend": 0,
 				"isfamily": 0,
 				"description": {"_content": ""}
 			},
 			{
-				"id": "37756450844",
-				"owner": "32669914@N04",
-				"secret": "223e38e90a",
-				"server": "4562",
+				"id": "38441247002",
+				"owner": "46980153@N08",
+				"secret": "ceaaa3fc35",
+				"server": "4581",
 				"farm": 5,
-				"title": "",
+				"title": "Smoky Mountain Stream",
 				"ispublic": 1,
 				"isfriend": 0,
 				"isfamily": 0,
 				"description": {"_content": ""}
 			},
 			{
-				"id": "37584091305",
-				"owner": "32669914@N04",
-				"secret": "33027bedae",
-				"server": "4552",
+				"id": "37758007744",
+				"owner": "80174067@N02",
+				"secret": "9e473bd649",
+				"server": "4572",
 				"farm": 5,
-				"title": "",
+				"title": "DSC05723",
 				"ispublic": 1,
 				"isfriend": 0,
 				"isfamily": 0,
 				"description": {"_content": ""}
 			},
 			{
-				"id": "26695460779",
-				"owner": "32669914@N04",
-				"secret": "3eeedf6d54",
-				"server": "4551",
+				"id": "38472621941",
+				"owner": "33924876@N05",
+				"secret": "4ec94e5ae3",
+				"server": "4565",
 				"farm": 5,
-				"title": "",
+				"title": "Durham!",
 				"ispublic": 1,
 				"isfriend": 0,
 				"isfamily": 0,
 				"description": {"_content": ""}
 			},
 			{
-				"id": "37584081655",
-				"owner": "32669914@N04",
-				"secret": "4be23520fd",
-				"server": "4576",
+				"id": "38416749436",
+				"owner": "26484363@N06",
+				"secret": "e5cabb0e6a",
+				"server": "4542",
 				"farm": 5,
-				"title": "",
+				"title": "Photo",
+				"ispublic": 1,
+				"isfriend": 0,
+				"isfamily": 0,
+				"description": {"_content": ""}
+			},
+			{
+				"id": "37585452015",
+				"owner": "33924876@N05",
+				"secret": "b6d442d062",
+				"server": "4558",
+				"farm": 5,
+				"title": "Durham!",
+				"ispublic": 1,
+				"isfriend": 0,
+				"isfamily": 0,
+				"description": {"_content": ""}
+			},
+			{
+				"id": "38440720692",
+				"owner": "29927633@N08",
+				"secret": "62d4ecd3a7",
+				"server": "4549",
+				"farm": 5,
+				"title": "dogs in costumes",
+				"ispublic": 1,
+				"isfriend": 0,
+				"isfamily": 0,
+				"description": {"_content": ""}
+			},
+			{
+				"id": "24600492448",
+				"owner": "29927633@N08",
+				"secret": "544a649858",
+				"server": "4536",
+				"farm": 5,
+				"title": "dogs in costumes2",
+				"ispublic": 1,
+				"isfriend": 0,
+				"isfamily": 0,
+				"description": {"_content": ""}
+			},
+			{
+				"id": "24600491768",
+				"owner": "29927633@N08",
+				"secret": "091d5fc595",
+				"server": "4557",
+				"farm": 5,
+				"title": "dogs in costumes3",
+				"ispublic": 1,
+				"isfriend": 0,
+				"isfamily": 0,
+				"description": {"_content": ""}
+			},
+			{
+				"id": "37585278395",
+				"owner": "29927633@N08",
+				"secret": "c10ec59f54",
+				"server": "4531",
+				"farm": 5,
+				"title": "dogs in costumes4",
+				"ispublic": 1,
+				"isfriend": 0,
+				"isfamily": 0,
+				"description": {"_content": ""}
+			},
+			{
+				"id": "37585276905",
+				"owner": "29927633@N08",
+				"secret": "fec7b6e569",
+				"server": "4540",
+				"farm": 5,
+				"title": "dogs in costumes5",
 				"ispublic": 1,
 				"isfriend": 0,
 				"isfamily": 0,
@@ -160,135 +146,102 @@ const images = {
 			}
 		]
 	}, "stat": "ok"
-}
+};
 
-let oneImage = images.photos.photo.filter((v, i) => i < 1);
-storiesOf('Components', module)
 
-	.add('background', () =>
-		<Background/>
-	)
-	.add('Logo', () =>
-		<Background>
-			<Logo/>
-		</Background>
-	)
-	.add('Logo small', () =>
-		<Background>
-			<Logo size="small"/>
-		</Background>
-	)
-	.add('Logo xsmall', () =>
-		<Background>
-			<Logo size="xsmall"/>
-		</Background>
-	)
-	.add('input empty', () =>
-		<Background>
-			<Wrapper80>
-				<Input label="keywords" onChange={value => action(`Text input value: ${value}`)}/>
-			</Wrapper80>
-		</Background>
-	)
-	.add('input filled', () =>
-		<Background>
-			<Wrapper80>
-				<Input label="keywords" value="Dogs"/>
-			</Wrapper80>
-		</Background>
-	)
-	.add('button', () =>
-		<Background>
-			<Wrapper80>
-				<Button onPress={() => action('button is pressed')}>Search</Button>
-			</Wrapper80>
-		</Background>
-	)
-	.add('button disabled', () =>
-		<Background>
-			<Wrapper80>
-				<Button disabled={true} onPress={() => action('button is pressed')}>Search</Button>
-			</Wrapper80>
-		</Background>
-	)
-	.add('activity indicator', () =>
-		<Background>
-			<Wrapper80>
-				<ActivityIndicator/>
-			</Wrapper80>
-		</Background>
-	)
-	.add('navigation block', () =>
-		<Background>
-			<NavigationBlock label="Hello world"
-							 tip="it is your keywords:"
-							 onBackPress={() => action('navigation block -> back')}/>
-		</Background>
-	)
-	.add('grid full', () =>
-		<Background>
-			<Grid images={images.photos.photo}
-				  onImageSelect={(image) => action('Grid -> onImageSelect:', image)}
-			/>
-		</Background>
-	)
-	.add('grid 1 image', () =>
-		<Background>
-			<Grid images={oneImage}
-				  onImageSelect={(image) => action('Grid -> onImageSelect:', image)}
-			/>
-		</Background>
-	)
-	.add('grid 3 images', () =>
-		<Background>
-			<Grid images={images.photos.photo.filter((v, i) => i < 3)}
-				  onImageSelect={(image) => action('Grid -> onImageSelect:', image)}
-			/>
-		</Background>
-	)
-	.add('grid 4 images', () =>
-		<Background>
-			<Grid images={images.photos.photo.filter((v, i) => i < 4)}
-				  onImageSelect={(image) => action('Grid -> onImageSelect:', image)}
-			/>
-		</Background>
-	)
-	.add('grid 5 images', () =>
-		<Background>
-			<Grid images={images.photos.photo.filter((v, i) => i < 5)}
-				  onImageSelect={(image) => action('Grid -> onImageSelect:', image)}
-			/>
-		</Background>
-	)
-	.add('grid 9 images', () =>
-		<Background>
-			<Grid images={images.photos.photo.filter((v, i) => i < 9)}
-				  onImageSelect={(image) => action('Grid -> onImageSelect:', image)}
-			/>
-		</Background>
-	)
+const apiKey = 'dd1f37406f619d661d5c40cddd1d5054';
+const apiSecret = 'a3b602fa2a7cae3a';
 
-	.add('bottom navigation', () =>
-		<Background>
-			<BottomNavigation onPressRight={() => action('navigation block -> prev')}
-							  onPressLeft={() => action('navigation block -> next')}
-			/>
-		</Background>
-	)
-	.add('description block', () =>
-		<Background>
-			<DescriptionBlock title="F8855 ~ Walking the dogs...." description="The powerful category 5 hurricanes Irma and Maria hit the Caribbean in September causing a number of deaths and widespread devastation in the Caribbean.
 
-Photo: Michael Atwood / UNDP"/>
-		</Background>
+const getImages = async (text, page, perPage) => {
+	console.log(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&text=${text}&extras=description&per_page=${perPage}&page=${page}&format=json&nojsoncallback=1`)
+	return await axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&text=${text}&extras=description&per_page=${perPage}&page=${page}&format=json&nojsoncallback=1`);
+};
+
+const enhancer = compose(
+	withState('loading', 'setLoading', false),
+	withState('searchRequest', 'setSearchRequest', {}),
+	withState('images', 'setImages', {images: [], page: 0, pages: 0}),
+	withState('selectedImage', 'setSelectedImage', null),
+	withPropsOnChange(['searchRequest'],
+		(props) => {
+			if (props.searchRequest.text) {
+				const {searchRequest: {text, page, perPage}, setImages, setLoading, loading} = props;
+
+				setLoading(true);
+				getImages(text, page, perPage).then(async response => {
+					response = response.data;
+					//console.log('getImages', {response});
+					setImages({
+						images: response.photos.photo,
+						page: response.photos.page,
+						pages: response.photos.pages,
+					})
+					setTimeout(() => setLoading(false), 750);
+				}).catch(err => console.error(err));
+				return {
+					searchRequest: {
+						text, page, perPage
+					},
+
+				}
+			}
+
+			return props
+
+
+		}),
+	withHandlers({
+		next: ({setSearchRequest, searchRequest: {text, perPage, page}}) => () => {
+			setSearchRequest({text, page: page + 1, perPage});
+		},
+		prev: ({setSearchRequest, searchRequest: {text, page, perPage}}) => () => {
+			if (page > 1) {
+				setSearchRequest({text, page: page - 1, perPage});
+			}
+		},
+	}),
+	lifecycle({
+		componentDidMount: function () {
+			this.props.setSearchRequest({text: 'dogs', page: 1, perPage: 11})
+		},
+	}),
+);
+
+const DogSearchResultPage = enhancer(({next, prev, images: {images, pages, page}, searchRequest: {text}, loading, selectedImage, setSelectedImage} ) => {
+
+	return <SearchResults images={images}
+						  onNext={next}
+						  onPrev={prev}
+						  onBack={action('onBack')}
+						  page={page}
+						  loading={loading}
+						  pages={pages}
+						  searchString={text}
+						  selectedImage={selectedImage}
+						  setSelectedImage={setSelectedImage}
+						  onImageSelect={value => setSelectedImage(value)}
+						  />
+})
+
+storiesOf('Pages', module)
+	.add('Search page', () =>
+		<Search onSubmit={(searchString) => action('onSubmit', searchString)}/>
 	)
-	.add('fullscreen image', () =>
-		<Background>
-			<FullscreenImage {images[Math.ceil(Math.random() * images.length)]} />
-		</Background>
+	.add('Search page -> loading', () =>
+		<Search loading={true} onSubmit={(searchString) => action('onSubmit', searchString)}/>
 	)
-	.add('close btn', () =>
-		<Background>
-			<CloseButton onPress={() => action('close button pressed')} />
-		</Background>
-	);
+	.add('Search results page', () =>
+		<SearchResults onBack={action('onBack')}
+					   images={images.photos.photo}
+					   onPrev={action('onPrev')}
+					   onImageSelect={action('onImageSelect')}
+					   onNext={action('onNext')}/>
+	)
+	.add('Dog Search results page', () =>
+		<DogSearchResultPage/>
+	)
+	.add('App', () =>
+		<App/>
+	)
+;

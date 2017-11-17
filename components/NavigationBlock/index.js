@@ -3,28 +3,26 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import Arrow from "../Arrow";
 import KeywordBlock from "./KeywordBlock";
+import Block from "../Block";
 
-
-const Wrapper = styled.View`
-	width: 90%;
-	height: ${({height = 72}) => height};
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
-`;
 
 const ArrowView = styled.View`
 	position: absolute;
 	left: 0;
 `;
 
-const NavigationBlock = ({height, label, tip, onBackPress, ...props}) => (
-	<Wrapper  height={height} {...props}>
-		<ArrowView>
-			<Arrow onPress={onBackPress}/>
-		</ArrowView>
-		<KeywordBlock label={label} tip={tip}/>
-	</Wrapper>
+const NavigationBlock = ({height = "72", label, tip, onBackPress, ...props}) => (
+	<Block width="100%">
+		<Block width="100%" height="8" color="#FF0084" />
+		<Block direction="row" justify="center" align="center" height={height} {...props}>
+			<ArrowView>
+				<Arrow onPress={onBackPress}/>
+			</ArrowView>
+			<KeywordBlock label={label} tip={tip}/>
+		</Block>
+		<Block width="100%" height="8" color="#FF0084" />
+	</Block>
+
 );
 
 

@@ -27,7 +27,7 @@ const Wrapper = styled.View`
 const Input = ({value, height, label='', onChange}) => (
 	<Wrapper height={height}>
 		<Label>{label.toUpperCase()}</Label>
-		<TextInput value={value} onChange={({target: {value}}) => onChange(value)}/>
+		<TextInput value={value} onChangeText={onChange}/>
 	</Wrapper>
 );
 
